@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .pro {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 10px;
+      max-width: 300px;
+      margin: auto;
+    }
+    .pro img {
+      width: 100%;
+      border-radius: 5px;
+    }
+    .des {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .des span {
+      font-size: 0.9rem;
+      color: #888;
+    }
+    .des h5 {
+      font-size: 1.1rem;
+      margin: 5px 0;
+    }
+    .star i {
+      color: #f7c42b;
+    }
+    .des h4 {
+      font-size: 1.2rem;
+      color: #333;
+    }
+    .cart {
+      font-size: 1.5rem;
+      color: #333;
+      cursor: pointer;
+      display: inline-block;
+      margin-top: 10px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="pro">
+    <img src="https://i.postimg.cc/2yhT2kvb/f2.jpg" alt="">
+    <div class="des">
+      <span>adidas</span>
+      <h5>Carton Leave Tshirts</h5>
+      <div class="star">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+      </div>
+      <h4>$78</h4>
+    </div>
+    <a class="cart" onclick="addToCart('Carton Leave Tshirts', 'adidas', 78, 'https://i.postimg.cc/2yhT2kvb/f2.jpg')">
+      <i class="fal fa-shopping-cart"></i> Add to Cart
+    </a>
+  </div>
+
+  <script>
+    function addToCart(name, brand, price, image) {
+      const cartItem = { name, brand, price, image };
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push(cartItem);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert('Item added to cart!');
+    }
+  </script>
+
+</body>
+</html>

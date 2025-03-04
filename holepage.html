@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FASHION NEST</title>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+      
+
+        <link rel="stylesheet" href="style.css">
+   
+  <script src="https://kit.fontawesome.com/dad03e859c.js" crossorigin="anonymous"></script>
+ 
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alkatra&family=Berkshire+Swash&family=Comic+Neue:wght@700&family=Gentium+Book+Plus:wght@400;700&family=Lato:ital,wght@0,400;0,700;0,900;1,700&family=Lexend+Deca:wght@500&family=Lexend:wght@500&family=Montserrat:wght@500&family=Open+Sans:wght@500;800&family=Roboto:wght@100;400&family=Sue+Ellen+Francisco&family=Work+Sans:wght@400;700;900&display=swap" rel="stylesheet">
+      
+      <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900;&display:swap">
+     
+    </head>
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+html {
+  scroll-behavior: smooth;
+}
+
+*{
+  margin: 0;
+  padding: 0; 
+  box-sizing: border-box;
+  font-family: "Spartan", san-serif;
+}
+
+h1{
+  font-size: 50px;
+  line-height: 64px;
+  color: #222;
+}
+
+h2{
+  font-size: 46px;
+  line-height: 54px;
+  color: #222;
+}
+
+h4{
+  font-size: 20px;
+  color: #222;
+}
+
+h6{
+  font-size: 12px;
+  font-weight: 700;
+}
+
+p{
+  font-size: 16px;
+  color: #465b52;
+  margin: 15px 0 20px 0
+}
+
+.section-p1{
+  padding: 40px 80px;
+  
+}
+
+
+.section-m1{
+  padding: 40px 0;
+}
+button.normal{
+  color: #000;
+  padding: 15px 30px;
+  font-weight: 400;
+  font-size: 14px;
+  border-radius: 4px;
+  background-color: #fff;
+  border: none;
+  outline: none;
+  transition: 0.2s;
+  cursor: pointer
+    
+}
+
+body{
+ width: 100%;
+/*  font-family: inherit;  */
+}
+
+
+
+#header{
+  position: fixed;
+  width: 100%;
+  overflow: hidden;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 80px;
+  background-color: #E3E6F3;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+  top: 0
+}
+
+#navbar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+#mobile{
+display: none;
+  align-items: center
+}
+
+#close{
+  display: none
+}
+
+#navbar li{
+  list-style: none; 
+  padding: 0 20px;
+  position: relative;
+}
+
+#navbar li a{
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  transition: 0.3s ease
+}
+
+#navbar li a:hover,
+#navbar li a.active{
+  color: #088178;
+}
+
+#navbar li a:hover::after,
+#navbar li a.active::after{
+  content: " ";
+  width: 30%;
+  height: 2px;
+  background: 2px;
+  background-color: #088178;
+  position: absolute;
+  bottom: -4px;
+  left: 20px;
+}
+
+#prodetails{
+  display: flex;
+  margin-top: 126px;
+}
+
+#prodetails .single-pro-image{
+  width: 40%;
+  margin-right: 50px
+}
+.small-img-group{
+  display:flex;
+  justify-content: space-between;
+}
+
+.small-img-col{
+  flex-basis: 24%;
+  cursor: pointer;
+}
+#prodetails .single-pro-details{
+  width: 50%;
+  padding: 30px;
+}
+
+#prodetails .single-pro-details h4{
+  padding: 40px 0 20px 0;
+
+}
+
+#prodetails .single-pro-details h2{
+font-size: 26px;
+
+}
+
+#prodetails .single-pro-details select{
+display: block;
+padding: 5px 10px;
+margin-bottom: 10px;
+outline: none;
+}
+
+#prodetails .single-pro-details input{
+width: 50px;
+height: 40px;
+padding-left: 10px;
+font-size:16px;
+margin-right: 10px;
+outline: none;
+}
+
+#prodetails .single-pro-details button{
+  
+  min-width: 130px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  background: #088178;
+  box-shadow: 0 5px #088178;
+}
+
+#prodetails .single-pro-details .btn:hover {
+  box-shadow: 0 3px #088142;
+  top: 1px;
+}
+#prodetails .single-pro-details .btn:active {
+  box-shadow: 0 0 #088142;
+  top: 5px;
+}
+
+#prodetails .single-pro-details span{
+  line-height: 25px;
+}
+
+#product1{
+  text-align: center;
+}
+
+#product1 .pro-container{
+display: flex;
+justify-content: space-between;
+padding-top: 20px;
+flex-wrap: wrap
+}
+
+#product1 .pro{
+  width: 23%;
+  min-width: 250px;
+  padding: 10px 12px;
+  border: 1px solid #cce7d0;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+  margin: 15px 0;
+  transition: 0.2s ease;
+  position: relative;
+}
+
+#product .pro:hover{
+   box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
+}
+
+#product1 .pro img{
+  width: 100%;
+  border-radius: 20px;
+}
+
+#product1 .pro .des{
+  text-align: start;
+  padding: 10px 0;
+}
+
+#product1 .pro .des span{
+  color: #606063;
+  font-size: 12px;
+}
+
+#product1 .pro .des h5{
+  padding-top: 7px;
+  color: #1a1a1a;
+  font-size: 14px;
+}
+
+#product1 .pro .des i{
+  font-size: 12px;
+  color: rgb(243, 181, 25)
+}
+
+#product1 .pro .des h4{
+  font-size: 15px;
+  padding-top: 7px;
+  font-weight: 700;
+  color: #088178;
+}
+
+#product1 .pro .cart{
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50px;
+  background-color: #e8f6ea;
+  font-weight: 500;
+  color: #088178;
+  border: 1px solid #cce7d0;
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
+}
+
+#newsletter  {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background-image: url(https://i.postimg.cc/R0Bs4qqt/b14.png);
+    background-repeat: no-repeat;
+    background-position: 20% 30%;
+  background-color: #041e42;
+}
+
+#newsletter h4{
+  color: #fff;
+  font-weight: 700;
+  font-size: 22px;
+}
+
+#newsletter p{
+  color: #818ea0;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+#newsletter p span{
+  color: #ffbd27;
+  }
+
+#newsletter input{
+  height: 3.125rem;
+  width: 100%;
+  font-size: 14px;
+  padding: 0 1.25em;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  outline: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#newsletter button{
+  background-color: #088178;
+  color: #fff;
+  white-space: nowrap;
+  border-left-right-radius: 0;
+  border-left-right-radius: 0; 
+}
+
+#newsletter .form{
+  display: flex;
+  width: 40%;
+  
+}
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
+}
+
+
+footer .col{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  margin-left: 50px
+
+}
+
+footer .sec{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  
+}
+
+footer .logo{
+  margin-bottom: 20px;
+}
+
+footer h4{
+  font-size: 14px;
+  padding-bottom: 20px
+}
+
+footer p{
+  font-size: 13px;
+  margin: 0 0 8px 0;
+}
+
+
+footer a{
+  font-size: 13px;
+  text-decoration: none;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+footer .follow{
+  margin-top: 20px
+}
+
+footer .follow i{
+  color: #465b52;
+  padding-right: 5px;
+  cursor: pointer;
+  
+}
+
+footer .follow i:hover, footer a:hover {
+  color: #088178;
+ 
+}
+
+footer .install .row img{
+  border: 1px solid #088178; 
+  border-radius: 6px;
+    
+}
+
+footer .install img{
+  margin: 10px 0 15px 0
+}
+
+
+footer .copyright{
+  width: 100%;
+  text-align: center
+   
+}
+
+
+
+/*----------------------Media Query ----------*/
+
+
+@media (max-width: 920px) {
+  
+  .section-p1 {
+    padding: 40px 40px  
+  }
+  
+  #navbar{
+  display: flex;
+  flex-direction: column;   
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: fixed;
+  top: 0;
+  right: -300px;
+  height: 100vh;
+  width: 300px;
+  background-color: #E3E6F3;
+  box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+  padding: 80px 0 0 10px;
+    transition: 0.3s
+    }
+  
+  #navbar.active{
+  right: 0;
+}
+
+  #navbar li{
+    margin-bottom: 25px
+  }
+  
+  #mobile{
+display: flex;
+  align-items: center
+}
+  #mobile i{
+    font-size: 32px;
+    color: #1a1a1a;
+    padding-left: 20px
+  }
+  
+  #close{
+  display: initial;
+  position: absolute;
+  top: -280px;
+  left: 20px;
+  color: #222;
+  font-size: 32px;  
+}
+  
+  #lg-bag{
+    display: none
+  }
+  
+  #hero{
+  height: 70vh;
+  padding: 0 80px;
+  background-position: top 30% right 30%
+ }
+
+  #feature {
+  justify-content: center;
+    
+}
+  
+  #feature .fe-box {
+    margin: 15px 15px
+  }
+  
+  #product1 .pro-container{
+    justify-content: center
+  }
+  
+  #product1 .pro{
+    margin: 15px;
+  }
+  
+  #banner{
+    height: 25vh
+  }
+  
+  #sm-banner .banner-box{
+    min-width: 100%;
+    height: 30vh;
+  }
+  
+  #banner3{
+    padding: 0 40px
+  }
+  
+  #banner3 .banner-box{
+    width: 28%
+  }
+  
+  #newsletter .form {
+    width: 70%
+  }
+  
+}
+
+@media (max-width: 477px) {
+  .section-p1{
+    padding: 20px
+  }
+  
+  #header{
+    padding: 10px 30px;
+  }
+  
+  #hero{
+    padding: 0 20px;
+    background-position: 55%;
+  }
+  
+  h2 {
+    font-size: 32px
+  }
+  
+  h1{
+    font-size: 38px
+  }
+  
+  #feature{
+    justify-content: space-between;
+  }
+  
+  #feature .fe-box{
+    width: 155px;
+    margin: 0 0 15px 0;
+  }
+  
+  #product1 .pro{
+    width: 100%
+  }
+  
+  #banner{
+    height: 40vh;
+  }
+  
+  #sm-banner .banner-box{
+    height: 40vh;
+}
+  
+  #sm-banner .banner-box2 {
+    margin-top: 20px;
+  }
+  
+  #banner3{
+    padding: 0 20px;
+  }
+  
+  #banner3 .banner-box{
+    width: 100%;
+  }
+  
+  #newsletter .form{
+    width:  100%
+  }
+  
+  #newsletter{
+    padding: 40px 20px;
+  }
+  
+  footer .copyright{
+    text-align: start;
+  }
+  
+/*   Single Product */
+  
+  #prodetails{
+  display: flex;
+  flex-direction: column;
+    
+  }
+  
+  #prodetails .single-pro-image{
+    width: 100%;
+    margin-right: 0px;
+  }
+  
+  #prodetails .single-pro-details{
+    width: 100%;
+  }
+}
+</style>
+    <body>
+
+        <section id="header">
+            <a href="#"><img src="https://i.postimg.cc/x8ncvFjr/logo.png"></a>
+            <div>
+      <ul id="navbar">
+ <li><a href="index.html" href="https://codepen.io/Motun/full/OJBwbrQ" onclick="window.location.href='https://codepen.io/Motun/full/OJBwbrQ'">Home</a></li>
+ <li><a href="shop.html" class="active">Shop</a></li>
+ <li><a href="blog.html">Blog</a></li>
+ <li><a href="about.html">About</a></li>
+ <li><a href="contact.html">Contact</a></li>
+ <li><a href="cart.html" id="lg-bag"><i class="fal fa-shopping-bag"></i></a></li>
+ <li><a href="#" id="close"<i class="far fa-times"></i></a></li>
+                </ul>
+            </div>
+<div id="mobile">
+  <a href="cart.html"><i class="fal fa-shopping-bag"></i></a>
+  <i id="bar" class="fas fa-outdent"></i>
+</div>
+        </section>
+
+<section id="prodetails" class="section-p1">
+  <div class="single-pro-image">
+  <img src="https://i.postimg.cc/kg9YYbTn/f1.jpg" width="100%" id="MainImg" alt="">  
+    <div class="small-img-group">
+      <div class="small-img-col">
+        <img src="https://i.postimg.cc/kg9YYbTn/f1.jpg" width="100%" class="small-img" alt="">
+      </div>
+ 
+ <div class="small-img-col">
+        <img src="https://i.postimg.cc/2yhT2kvb/f2.jpg" width="100%" class="small-img" alt="f2">
+      </div>
+
+      <div class="small-img-col">
+        <img src="https://i.postimg.cc/VL9DtNm2/f3.jpg" width="100%" class="small-img" alt="f3">
+      </div>
+
+      <div class="small-img-col">
+        <img src="https://i.postimg.cc/vZ3hPS1z/f4.jpg" width="100%" class="small-img" alt="f4">
+      </div>
+
+      <div class="small-img-col">
+        <img src="https://i.postimg.cc/q7FLrhx6/f5.jpg" width="100%" class="small-img" alt="f5">
+      </div>
+
+      
+    </div>
+  </div>
+  
+  <div class="single-pro-details">
+    <h6>Home/T-shirt</h6>
+    <h4>Men's Fashion T-shirt</h4>
+    <h2>$139.00</h2>
+    <select name="" id="">
+      <option value="">Select-size</option>
+      <option value="">S (36)</option>
+      <option value="">M (38)</option>
+      <option value="">L (40)</option>
+      <option value="">XL (42)</option>
+      <option value="">XXL (44)</option>
+    </select>
+    <input type="number" value="1">
+    <button class="btn normal">Add to Cart</button>
+    <h4>Product Details</h4>
+    <span>The Gildan Ultra Cotton T-shirt is made from a substantial 6.0 oz. per sq. yd. fabric constructed from 100% cotton, this classic first preshrunk jersey knit provides unmatched comfort with each wear. Featuring a taped neck and shoulder, and a seamless double-needle collar, and available in a range of colors, it offers it all in the ultimate head-turning package.</span>
+  </div>
+</section>
+
+<section id="product1" class="section-p1">
+  <h2>Featured Products</h2>
+  <p>Summer Collection New Modern Design</p>
+  <div class="pro-container">
+    <div class="pro">
+      <img src="https://i.postimg.cc/hG1hqqK6/n1.jpg" alt="">
+      <div class="des">
+        <span>adidas</span>
+        <h5>Pale Blue Tshirts</h5>
+        <div class="star">
+          <i class="fas fa-star"></i>
+           <i class="fas fa-star"></i>
+           <i class="fas fa-star"></i>
+           <i class="fas fa-star"></i>
+           <i class="fas fa-star"></i>
+        </div>
+        <h4>$78</h4>
+      </div>
+      <a href=""><i class="fal fa-shopping-cart cart"></i></a>
+    </div>
+     
+    <div class="pro">
+      <img src="https://i.postimg.cc/BZkSkvxt/n2.jpg" alt="">
+      <div class="des">
+        <span>adidas</span>
+        <h5>Plain Grey Tshirts</h5>
+        <div class="star">
+          <i class="fas fa-star"></i>
+           <i class="fas fa-star"></i>
+           <i class="fas fa-star"></i>
+           <i class="fas fa-star"></i>
+           <i class="fas fa-star"></i>
+        </div>
+        <h4>$78</h4>
+      </div>
+      <a href=""><i class="fal fa-shopping-cart cart"></i></a>
+    </div>
+      
+    <div class="pro">
+      <img src="https://i.postimg.cc/KYjcC3sk/n3.jpg" alt="">
+      <div class="des">
+        <span>adidas</span>
+        <h5>Plain White Tshirts</h5>
+        <div class="star">
+          <i class="fas fa-star"></i>
+           <i class="fas fa-star"></i>
+           <i class="fas fa-star"></i>
+           <i class="fas fa-star"></i>
+           <i class="fas fa-star"></i>
+        </div>
+        <h4>$78</h4>
+      </div>
+      <a href=""><i class="fal fa-shopping-cart cart"></i></a>
+    </div>
+      
+    <div class="pro">
+      <img src="https://i.postimg.cc/908J8S4q/n5.jpg" alt="">
+      <div class="des">
+        <span>adidas</span>
+        <h5>Blue Jean T-shirt</h5>
+        <div class="star">
+          <i class="fas fa-star"></i>
+           <i class="fas fa-star"></i>
+           <i class="fas fa-star"></i>
+           <i class="fas fa-star"></i>
+           <i class="fas fa-star"></i>
+        </div>
+        <h4>$78</h4>
+      </div>
+      <a href=""><i class="fal fa-shopping-cart cart"></i></a>
+    </div>
+    
+        
+  </div>
+</section>
+
+<section id="newsletter" class="section-p1">
+  <div class="newstext">
+    <h4>Sign Up for Newsletters</h4>
+    <p>Get Email updates about our latest shop and <span> special offers.</span> </p>
+  </div>
+    <div class="form">
+    <input type="text" placeholder="Your email address">
+       <button class="btn normal">Sign Up</button>
+    </div>
+   
+  </div>
+  
+</section>
+
+<footer class="section-p1">
+  
+<div class="col">
+<a href="#"><img class="logo" src="https://i.postimg.cc/x8ncvFjr/logo.png"></a>
+    <h4>Contact</h4>
+     <p><strong>Address:<strong>349, Olorilogbon street, Onigbogbo Lagos</p>
+    <p><strong>Phone:</strong>+23456876199, +23458903120</p>
+    <p><strong>Hours:</strong>10.00 - 18.00, Mon - Sat</p>
+       <div class="follow">
+         <h4>Follow Us</h4>
+         <div class="icon">
+           <i class="fab fa-facebook-f"></i>
+           <i class="fab fa-instagram"></i>
+           <i class="fab fa-twitter"></i>
+           <i class="fab fa-youtube"></i>
+           <i class="fab fa-pinterest-p"></i>
+            </div>
+       </div>
+       </div>
+      
+    <div class="sec">   
+    <div class="col">
+      <h4>About</h4>
+      <a href="#">About Us</a>
+      <a href="#">Delivery Information</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms and Condition</a>
+      <a href="#">Contact Us</a>
+   </div>
+    
+    <div class="col">
+      <h4>My Account</h4>
+      <a href="#">Sign In</a>
+      <a href="#">View Cart</a>
+      <a href="#">My Account</a>
+      <a href="#">My Wishlist</a>
+      <a href="#">Track my Order</a>
+      <a href="#">Help</a>
+        
+    </div>
+    
+    <div class="col install">
+      <h4>Install App</h4>
+      <p>From App Store or Google Play</p>
+ 
+      <div class="row">
+      <img src="https://i.postimg.cc/Y2s5mLdR/app.jpg" alt="">
+      <img src="https://i.postimg.cc/7YvyWTS6/play.jpg" alt="">
+    </div>
+    <p>Secured Payment Gateways</p>
+    <img src="https://i.postimg.cc/kgfzqVRW/pay.png" alt="">
+       </div>
+  </div>
+  
+  <div class="coypright">
+      <p> © 2023 All rights reserved! made by Tunrayo </p>
+    </div>
+  
+ </footer>
+  
+  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   
+
+<script>
+    const bar = document.getElementById('bar')
+const close = document.getElementById('close')
+const nav = document.getElementById('navbar')
+
+if (bar) {
+  bar.addEventListener('click', () => {
+    nav.classList.add('active')
+  })
+ 
+ if (close) {
+   close.addEventListener('click', () => {
+     nav.classList.remove('active')
+   })
+ }
+}
+
+
+var MainImg = document.getElementById("MainImg");
+  var smallimg = document.getElementsByClassName("small-img");
+
+smallimg[0].onclick = function(){
+  MainImg.src = smallimg[0].src;
+}
+
+smallimg[1].onclick = function(){
+  MainImg.src = smallimg[1].src;
+}
+
+smallimg[2].onclick = function(){
+  MainImg.src = smallimg[2].src;
+}
+
+smallimg[3].onclick = function(){
+  MainImg.src = smallimg[3].src;
+}
+  
+  smallimg[4].onclick = function(){
+  MainImg.src = smallimg[4].src;
+}
+    
+
+</script>
+    </body>
+
+</html>

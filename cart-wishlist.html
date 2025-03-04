@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart with Quantity Increment/Decrement</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .product, .section {
+      margin-bottom: 30px;
+    }
+    .product {
+      display: flex;
+      align-items: center;
+      border: 1px solid #ddd;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .product img {
+      width: 80px;
+      margin-right: 10px;
+    }
+    .product h5 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+    .product .price {
+      margin-left: auto;
+      font-size: 1.1rem;
+    }
+    .product button {
+      margin-left: 10px;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #28a745;
+      color: white;
+      cursor: pointer;
+    }
+    .item {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+    }
+    .item img {
+      width: 80px;
+      margin-right: 10px;
+    }
+    .item h5 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+    .item .quantity-control {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+    }
+    .item .quantity-control button {
+      padding: 5px;
+      margin: 0 5px;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .item .quantity-control span {
+      padding: 0 10px;
+    }
+    .item .remove {
+      margin-left: 10px;
+      cursor: pointer;
+      color: red;
+    }
+    .total {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Product Section -->
+  <div class="product">
+    <img src="https://i.postimg.cc/2yhT2kvb/f2.jpg" alt="Product">
+    <h5>Carton Leave Tshirts</h5>
+    <div class="price">$78</div>
+    <button onclick="addToCart('Carton Leave Tshirts', 'adidas', 78, 'https://i.postimg.cc/2yhT2kvb/f2.jpg')">Add to Cart</button>
+  </div>
+
+  <!-- Cart Section -->
+  <div class="section">
+    <h2>Cart</h2>
+    <div id="cart-items"></div>
+    <p class="total">Total: $<span id="cart-total">0</span></p>
+  </div>
+
+  <script>
+    // Cart data
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartTotalElement = document.getElementById('cart-total');
+    let cartTotal = 0;
+
+    // Add to cart
+    function addToCart(name, brand, price, image) {
+      const existingItem = cart.find(item => item.name === name);
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push({ name, brand, price, image, quantity: 1 });
+      }
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+    }
+
+    // Remove from cart
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+    }
+
+    // Increment quantity
+    function incrementQuantity(index) {
+      cart[index].quantity += 1;
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+    }
+
+    // Decrement quantity
+    function decrementQuantity(index) {
+      if (cart[index].quantity > 1) {
+        cart[index].quantity -= 1;
+      } else {
+        removeFromCart(index);
+      }
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+    }
+
+    // Render cart items
+    function renderCart() {
+      cartItemsContainer.innerHTML = '';
+      cartTotal = 0;
+
+      cart.forEach((item, index) => {
+        cartTotal += item.price * item.quantity;
+        const cartItem = document.createElement('div');
+        cartItem.classList.add('item');
+        cartItem.innerHTML = `
+          <img src="${item.image}" alt="${item.name}">
+          <div>
+            <h5>${item.name}</h5>
+            <span>${item.brand}</span>
+          </div>
+          <div class="quantity-control">
+            <button onclick="decrementQuantity(${index})">-</button>
+            <span>${item.quantity}</span>
+            <button onclick="incrementQuantity(${index})">+</button>
+          </div>
+          <div class="price">$${item.price * item.quantity}</div>
+          <i class="fas fa-trash remove" onclick="removeFromCart(${index})"></i>
+        `;
+        cartItemsContainer.appendChild(cartItem);
+      });
+
+      cartTotalElement.textContent = cartTotal.toFixed(2);
+
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+      }
+    }
+
+    // Initial render
+    renderCart();
+  </script>
+
+</body>
+</html>
