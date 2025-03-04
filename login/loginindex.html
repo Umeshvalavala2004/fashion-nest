@@ -9,6 +9,165 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
 </head>
+<style>
+    /* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Background Image */
+.background-image {
+    position: fixed; /* Keeps the image fixed in place */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensures the background stays behind other content */
+    background-image: url('https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1200&q=80');
+    background-size: cover; /* Makes the image cover the entire screen */
+    background-position: center center; /* Centers the image */
+}
+
+/* Navigation */
+nav {
+    padding: 1rem 0;
+}
+
+nav .flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: #4A4A4A;
+    font-weight: 500;
+}
+
+nav .btn {
+    background-color: #000;
+    color: #fff;
+    padding: 0.75rem 2rem;
+    border-radius: 0.375rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+nav .btn:hover {
+    background-color: #333;
+}
+
+nav .text-black {
+    color: #000;
+}
+
+/* Hero Section */
+.relative {
+    position: relative;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-black {
+    color: #000;
+}
+
+h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40%;
+    color: rgb(0, 0, 0) !important;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #000;
+}
+
+p {
+    font-size: 1.25rem;
+    color: #ffffff;
+}
+
+.space-x-4 > * {
+    margin-right: 1rem;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #000000;
+    color: #fff;
+    padding: 0.75rem 2rem;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #ffffff;
+    color: black;
+}
+
+.border-2 {
+    border-width: 2px;
+    border-color: #000;
+}
+
+.text-black {
+    color: #000;
+    background-color: white;
+    text-decoration: none;
+}
+
+.text-black:hover {
+    background-color: #000;
+    color: #fff;
+}
+#logo{
+    background-color: transparent !important;
+    font-weight: 500 !important;
+    color: white;
+    margin-left: 10px;
+    font-size: 20px;
+}
+#heading{
+    background-color: transparent !important;
+}
+/* Responsive Styles */
+@media (min-width: 640px) {
+    h1 {
+        font-size: 4rem;
+    }
+
+    p {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    h1 {
+        font-size: 5rem;
+    }
+
+    p {
+        font-size: 1.75rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .max-w-3xl {
+        max-width: 48rem;
+    }
+}
+
+</style>
 <body>
     <div class="min-h-screen bg-gray-50 relative">
         <!-- Background Image -->
@@ -21,7 +180,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-16">
                     <div class="flex items-center">
-                        <a href="/index.html" class="text-2xl font-bold text-black">Fashion Nest</a>
+                        <a href="/index.html" class="text-2xl font-bold text-black" id="logo">Fashion Nest</a>
                     </div>
                     <div class="flex items-center space-x-4">
                         <a href="/index.html" class="text-gray-700 hover:text-black"><i class="fa-solid fa-house"></i></a>
@@ -35,7 +194,7 @@
         <!-- Hero Section -->
         <div class="relative z-10 flex items-center justify-center min-h-[calc(100vh-4rem)] p-4">
             <div class="text-center max-w-3xl">
-                <h1 class="text-5xl md:text-6xl font-bold text-black mb-6">Discover Your Style</h1>
+                <h1 class="text-5xl md:text-6xl font-bold text-black mb-6" id="heading">Discover Your Style</h1>
                 <p class="text-xl text-gray-700 mb-8">Join Fashion Nest and explore the latest trends in fashion</p>
                 <div class="space-x-4">
                     <a href="signup.html" class="btn btn-primary px-8 py-4">Get Started</a>
