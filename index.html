@@ -919,8 +919,24 @@ justify-content: center;
 font-size: 40px;
 color: rgb(0, 0, 0);
  }
+ #preloader {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+
 </style>
     <body>
+      <div id="preloader">
+        <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+<dotlottie-player src="https://lottie.host/bb65021f-e7cf-4eb0-b6fc-b3c675f5c808/z0wWyEidKf.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
+      </div>
  <section id="header">
             <a href="#"><img id="logoimg" src="logo.png"></a>
             <div>
@@ -954,8 +970,8 @@ color: rgb(0, 0, 0);
   </a>
   <i id="bar" class="fas fa-outdent"></i>
 </div>
-
-        </section>
+</section>
+</section>
 
 <section id="hero">
   <h4>Trade-in-fair</h4>
@@ -963,7 +979,6 @@ color: rgb(0, 0, 0);
   <h1>On all Products</h1>
   <p>Save more with coupons and up to 70% off!</p>
   <button>Shop Now</button>
-  
 </section>
 
 <section id="feature" class="section-p1">
@@ -1640,6 +1655,12 @@ function removeFromCart(index) {
   updateCartQuantity(); // Update the cart count
   renderCart(); // Rerender cart items if necessary
 }
+//preloader
+window.addEventListener("load", function () {
+    setTimeout(function () {
+        document.getElementById("preloader").style.display = "none";
+    }, 2000); // 2000ms = 2 seconds
+});
 
  </script>
 </html>

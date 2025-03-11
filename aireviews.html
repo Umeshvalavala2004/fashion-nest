@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Reviews with AI Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .review-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .review-form input, .review-form textarea, .review-form select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .review-form button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .review-form button:hover {
+            background-color: #218838;
+        }
+        .reviews-container {
+            margin-top: 20px;
+        }
+        .review {
+            background: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .review .rating {
+            color: #f39c12;
+        }
+        .ai-analysis {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Customer Reviews</h2>
+
+        <!-- Review Submission Form -->
+        <div class="review-form">
+            <input type="text" id="name" placeholder="Your Name">
+            <textarea id="review" rows="3" placeholder="Write your review..."></textarea>
+            <select id="rating">
+                <option value="5">⭐⭐⭐⭐⭐ - Excellent</option>
+                <option value="4">⭐⭐⭐⭐ - Good</option>
+                <option value="3">⭐⭐⭐ - Average</option>
+                <option value="2">⭐⭐ - Poor</option>
+                <option value="1">⭐ - Bad</option>
+            </select>
+            <button onclick="submitReview()">Submit Review</button>
+        </div>
+
+        <!-- Reviews Display -->
+        <div class="reviews-container" id="reviews-container">
+            <h3>All Reviews:</h3>
+        </div>
+
+        <!-- AI-Generated Analysis -->
+        <div class="ai-analysis" id="ai-analysis">
+            <strong>AI Analysis:</strong> No reviews yet.
+        </div>
+    </div>
+
+    <script>
+        let reviews = [];
+
+        function submitReview() {
+            let name = document.getElementById("name").value;
+            let reviewText = document.getElementById("review").value;
+            let rating = document.getElementById("rating").value;
+
+            if (name === "" || reviewText === "") {
+                alert("Please enter your name and review.");
+                return;
+            }
+
+            let review = { name, reviewText, rating };
+            reviews.push(review);
+            displayReviews();
+            generateAIAnalysis();
+
+            document.getElementById("name").value = "";
+            document.getElementById("review").value = "";
+        }
+
+        function displayReviews() {
+            let reviewsContainer = document.getElementById("reviews-container");
+            reviewsContainer.innerHTML = "<h3>All Reviews:</h3>";
+
+            reviews.forEach(review => {
+                let reviewDiv = document.createElement("div");
+                reviewDiv.classList.add("review");
+                reviewDiv.innerHTML = `
+                    <p><strong>${review.name}</strong></p>
+                    <p class="rating">${"⭐".repeat(review.rating)}</p>
+                    <p>${review.reviewText}</p>
+                `;
+                reviewsContainer.appendChild(reviewDiv);
+            });
+        }
+
+        function generateAIAnalysis() {
+            if (reviews.length === 0) {
+                document.getElementById("ai-analysis").innerHTML = "<strong>AI Analysis:</strong> No reviews yet.";
+                return;
+            }
+
+            let totalRating = reviews.reduce((sum, r) => sum + parseInt(r.rating), 0);
+            let avgRating = (totalRating / reviews.length).toFixed(1);
+
+            let sentiment = avgRating >= 4 ? "positive" :
+                           avgRating >= 3 ? "neutral" :
+                           "negative";
+
+            let summary = `Based on ${reviews.length} reviews, the average rating is ${avgRating}. The overall customer sentiment is <strong>${sentiment}</strong>.`;
+
+            document.getElementById("ai-analysis").innerHTML = `<strong>AI Analysis:</strong> ${summary}`;
+        }
+    </script>
+
+</body>
+</html>
